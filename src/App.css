@@ -1,38 +1,176 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --deep-purple: #4C1690;
+    --light-purple: #A67AED;
+    --ice-white: #F5F5FF;
+    --grey-blue: #3A2F5F;
+    --dark-graphite: #1A1A1F;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+h1{
+    color: var(--dark-graphite);
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#welcome{
+    text-align: center;
+}
+
+.task-container {
+  background: var(--ice-white);
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  width: 90%;
+}
+
+.task-title {
+  color: var(--deep-purple);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.task-input-area {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.task-input {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 2px solid var(--light-purple);
+  outline: none;
+  font-size: 1rem;
+  background: white;
+}
+
+.task-input:focus {
+  border-color: var(--deep-purple);
+}
+
+.task-add-btn {
+  background: var(--deep-purple);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+
+.task-add-btn:hover {
+  background: var(--light-purple);
+}
+
+.task-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.task-item {
+  background: white;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 5px solid var(--deep-purple);
+  gap: 1rem;
+}
+
+.task-content {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.task-done {
+  text-decoration: line-through;
+  color: var(--grey-blue);
+}
+
+.task-delete-btn {
+  background: transparent;
+  border: none;
+  color: var(--deep-purple);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.task-delete-btn:hover {
+  color: var(--light-purple);
+}
+
+@media (max-width: 480px) {
+  .task-container {
+    padding: 1.5rem;
+  }
+
+  .task-title {
+    font-size: 1.5rem;
+  }
+
+  .task-input-area {
+    flex-direction: column;
+  }
+
+  .task-add-btn {
+    width: 100%;
+    padding: 0.9rem;
+  }
+
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task-delete-btn {
+    align-self: flex-end;
+    margin-top: 0.5rem;
   }
 }
 
-.App-header {
-  background-color: #282c34;
+@media (max-width: 768px) {
+  .task-container {
+    max-width: 90%;
+  }
+}
+
+html, body {
+  height: 100%;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app-main {
+  flex: 1;
+  padding: 20px;
 }
